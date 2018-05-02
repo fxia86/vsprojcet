@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MerchantService.cs" />
     <Compile Include="Merchant.cs" />
     <Compile Include="PagingCriteria.cs" />
     <Compile Include="SysUser.cs" />

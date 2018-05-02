@@ -39,6 +39,7 @@
             var scrollTop = $(document).scrollTop();
             $("body").append($(ele));
             $(ele).attr({ 'id': id }).css({
+                'z-index': '999999',
                 'width': this.setting.pwidth + "px",
                 'height': this.setting.pheight + "px",
                 'position': 'fixed',

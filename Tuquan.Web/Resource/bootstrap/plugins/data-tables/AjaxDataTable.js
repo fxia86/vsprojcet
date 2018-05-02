@@ -1,42 +1,39 @@
-﻿var oTableD = null;
-var aoDataText = null;
-var Component = new Object();
-
-//dataTableID   表格ID
+﻿//dataTableID   表格ID
 //sAjaxSource   控制器路径
 //aoColumns     对象结构
 //aoData        排序字段
-//Component     组件呈现
-var AjaxDataTable = function (dataTableID, sAjaxSource, aoColumns, aoDataText, Component) {
+//component     组件呈现
+var AjaxDataTable = function (dataTableID, sAjaxSource, aoColumns, Component, aoDataText) {
+    var component = Component || new Object();
     //判断对象属性是否有值,无值采用默认值
-    if (typeof (Component.bDestroy) == "undefined")
-        Component.bDestroy = false;     //是否重复覆盖表数据
-    if (typeof (Component.bFilter) == "undefined")
-        Component.bFilter = false;      //是否显示模糊查询
-    if (typeof (Component.bPaginate) == "undefined")
-        Component.bPaginate = true;     //是否分页
-    if (typeof (Component.bSort) == "undefined")
-        Component.bSort = false;         //是否排序
-    if (typeof (Component.bInfo) == "undefined")
-        Component.bInfo = true;         //是否显示页脚
-    if (typeof (Component.bAsync) == "undefined")
-        Component.bAsync = true;         //设置是同步还是异步。false:同步;true:异步
+    if (typeof (component.bDestroy) == "undefined")
+        component.bDestroy = true;     //是否重复覆盖表数据
+    if (typeof (component.bFilter) == "undefined")
+        component.bFilter = false;      //是否显示模糊查询
+    if (typeof (component.bPaginate) == "undefined")
+        component.bPaginate = true;     //是否分页
+    if (typeof (component.bSort) == "undefined")
+        component.bSort = false;         //是否排序
+    if (typeof (component.bInfo) == "undefined")
+        component.bInfo = true;         //是否显示页脚
+    if (typeof (component.bAsync) == "undefined")
+        component.bAsync = true;         //设置是同步还是异步。false:同步;true:异步
 
-    oTableD = $('#' + dataTableID).dataTable({
-        "bDestroy": Component.bDestroy,
+   var oTableD = $('#' + dataTableID).dataTable({
+        "bDestroy": component.bDestroy,
         "sDom": "<'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r>t<'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>", //default layout without horizontal scroll(remove this setting to enable horizontal scroll for the table)
-        "aLengthMenu": [[10, 20, 50, 100], [10, 20, 50, 100]],//修改分页
+        "aLengthMenu": [[5, 10, 20, 50], [5, 10, 20, 50]],//修改分页
         "bServerSide": true,//开启服务器模式，使用服务器端处理配置datatable
         "sAjaxSource": sAjaxSource,//获取数据的url
-        "iDisplayLength": 20 || Component.iDisplayLength,
+        "iDisplayLength": 10 || component.iDisplayLength,
         "aoColumns": aoColumns,
         "bDeferRender ": true,//延迟渲染
         "bAutoWidth": false,                    //关闭后，表格将不会自动计算表格大小
         "bProcessing": true,                    //加载数据时显示正在加载信息
-        "bFilter": Component.bFilter,           //是否使用过滤功能
-        "bPaginate": Component.bPaginate,       //是否分页
-        "bSort": Component.bSort,               //是否排序
-        "bInfo": Component.bInfo,               //页脚信息
+        "bFilter": component.bFilter,           //是否使用过滤功能
+        "bPaginate": component.bPaginate,       //是否分页
+        "bSort": component.bSort,               //是否排序
+        "bInfo": component.bInfo,               //页脚信息
         "bLengthChange": true,                  //用户可改变每页显示数量
         "fnServerData": function (sSource, aoData, fnCallback) {
             if (aoDataText != null)
@@ -46,7 +43,7 @@ var AjaxDataTable = function (dataTableID, sAjaxSource, aoColumns, aoDataText, C
                 "type": "POST",
                 "url": sSource,
                 "data": aoData,
-                "async": Component.bAsync,
+                "async": component.bAsync,
                 "success": function (resp) {
                     fnCallback(resp);
                 }
@@ -59,7 +56,7 @@ var AjaxDataTable = function (dataTableID, sAjaxSource, aoColumns, aoDataText, C
         "oLanguage": {                          //汉化
             "sLengthMenu": "每页显示 _MENU_ 条记录",
             "sZeroRecords": "没有数据",
-            "sInfo": "<span>第 _START_ 到第 _END_ 条数据；共有 _TOTAL_ 条记录</span>",
+            "sInfo": "<span>第 _START_ - _END_ 条；共 _TOTAL_ 条</span>",
             "sInfoEmtpy": "没有数据",
             "sProcessing": "正在加载数据...",
             "sSearch": "搜索：",

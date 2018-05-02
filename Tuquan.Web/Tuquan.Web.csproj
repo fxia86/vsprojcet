@@ -168,6 +168,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\MerchantController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\WithdrawalController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -690,9 +692,9 @@
     <Content Include="Resource\bootstrap\plugins\uniform\jquery.uniform.js" />
     <Content Include="Resource\bootstrap\plugins\uniform\jquery.uniform.min.js" />
     <Content Include="Resource\bootstrap\scripts\app.js" />
+    <Content Include="Resource\bootstrap\scripts\bigImg.js" />
     <Content Include="Resource\bootstrap\scripts\custom.js" />
     <Content Include="Resource\bootstrap\scripts\index.js" />
-    <Content Include="Resource\bootstrap\scripts\bigImg.js" />
     <Content Include="Resource\bootstrap\scripts\login-soft.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -786,6 +788,8 @@
     <Content Include="Views\Shared\Top.cshtml" />
     <Content Include="Views\Merchant\Index.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Withdrawal\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tuquan.Common\Tuquan.Common.csproj">
@@ -801,6 +805,7 @@
       <Name>Tuquan.Model</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
