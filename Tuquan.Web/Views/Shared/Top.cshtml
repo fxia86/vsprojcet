@@ -1,0 +1,44 @@
+﻿
+<div class="header navbar navbar-fixed-top">
+    <!-- BEGIN TOP NAVIGATION BAR -->
+    <div class="header-inner row top_MWidth">
+        <div class="col-md-2 ">
+            <a class="navbar-brand change_HeaderBlock">
+                <span class="change_HeaderBlock_font fs15">@ViewBag.date</span>
+            </a>
+            <a href="javascript:;" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <img src="assets/img/menu-toggler.png" alt="" />
+            </a>
+        </div>
+        <div class="col-md-10 topwhite_minW ">
+            <div class="row">
+                <ul class="nav navbar-nav col-md-12">
+                    <li style="height:50px;line-height:50px;font-size:25px;margin-left:30px;" class="pull-left ">
+                        <div class="ChangeTeam later">
+                            电梯管家服务管理后台
+                        </div>
+                    </li>
+                    <li class="pull-right w380">
+
+                        <ul class="inline">
+                            <li class="fs22 mt10 ">
+                                @(ViewBag.name)
+                            </li>
+                            <li class="pull-right mr100">
+
+                                <div class="out later">
+                                    <a href="/main/logout" data-toggle="modal" class="out_btn Mybtn">
+                                        退出
+                                    </a>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- END TOP NAVIGATION MENU -->
+    </div>
+    <!-- END TOP NAVIGATION BAR -->
+</div>

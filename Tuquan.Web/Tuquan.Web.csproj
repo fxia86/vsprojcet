@@ -1,0 +1,838 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3C207D99-6FDF-4620-8C43-A64B05B7BE46}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tuquan.Web</RootNamespace>
+    <AssemblyName>Tuquan.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="RouteDebugger, Version=2.1.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\routedebugger.2.1.5\lib\net40\RouteDebugger.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <Private>True</Private>
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.1.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.1.0.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.1.0.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.0.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.0.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.0.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="Controllers\MerchantController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\UserAuthorizeAttribute.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Resource\bootstrap\css\animate.css" />
+    <Content Include="Resource\bootstrap\css\custom.css" />
+    <Content Include="Resource\bootstrap\css\globel.css" />
+    <Content Include="Resource\bootstrap\css\img\bg-white-lock.png" />
+    <Content Include="Resource\bootstrap\css\img\diy\1_close.png" />
+    <Content Include="Resource\bootstrap\css\img\diy\1_open.png" />
+    <Content Include="Resource\bootstrap\css\img\diy\2.png" />
+    <Content Include="Resource\bootstrap\css\img\diy\3.png" />
+    <Content Include="Resource\bootstrap\css\img\diy\4.png" />
+    <Content Include="Resource\bootstrap\css\img\diy\5.png" />
+    <Content Include="Resource\bootstrap\css\img\diy\6.png" />
+    <Content Include="Resource\bootstrap\css\img\diy\7.png" />
+    <Content Include="Resource\bootstrap\css\img\diy\8.png" />
+    <Content Include="Resource\bootstrap\css\img\diy\9.png" />
+    <Content Include="Resource\bootstrap\css\img\Down.png" />
+    <Content Include="Resource\bootstrap\css\img\line_conn.gif" />
+    <Content Include="Resource\bootstrap\css\img\loading.gif" />
+    <Content Include="Resource\bootstrap\css\img\UP.png" />
+    <Content Include="Resource\bootstrap\css\img\zTreeStandard.gif" />
+    <Content Include="Resource\bootstrap\css\img\zTreeStandard.png" />
+    <Content Include="Resource\bootstrap\css\login-soft.css" />
+    <Content Include="Resource\bootstrap\css\login.css" />
+    <Content Include="Resource\bootstrap\css\plugins.css" />
+    <Content Include="Resource\bootstrap\css\print.css" />
+    <Content Include="Resource\bootstrap\css\style-metronic.css" />
+    <Content Include="Resource\bootstrap\css\style-non-responsive.css" />
+    <Content Include="Resource\bootstrap\css\style-responsive.css" />
+    <Content Include="Resource\bootstrap\css\style.css" />
+    <Content Include="Resource\bootstrap\css\themes\blue.css" />
+    <Content Include="Resource\bootstrap\css\themes\brown.css" />
+    <Content Include="Resource\bootstrap\css\themes\default.css" />
+    <Content Include="Resource\bootstrap\css\themes\grey.css" />
+    <Content Include="Resource\bootstrap\css\themes\light.css" />
+    <Content Include="Resource\bootstrap\css\themes\purple.css" />
+    <Content Include="Resource\bootstrap\css\zTreeStyle.css" />
+    <Content Include="Resource\bootstrap\fonts\font.css" />
+    <Content Include="Resource\bootstrap\img\360.png" />
+    <Content Include="Resource\bootstrap\img\AddPic.png" />
+    <Content Include="Resource\bootstrap\img\ajax-loading.gif" />
+    <Content Include="Resource\bootstrap\img\ajax-modal-loading.gif" />
+    <Content Include="Resource\bootstrap\img\arrow-down.png" />
+    <Content Include="Resource\bootstrap\img\arrow.png" />
+    <Content Include="Resource\bootstrap\img\ASortIcon.png" />
+    <Content Include="Resource\bootstrap\img\avatar.png" />
+    <Content Include="Resource\bootstrap\img\bg-opacity.png" />
+    <Content Include="Resource\bootstrap\img\bg-white-lock.png" />
+    <Content Include="Resource\bootstrap\img\bg-white.png" />
+    <Content Include="Resource\bootstrap\img\bg\1.jpg" />
+    <Content Include="Resource\bootstrap\img\bg\2.jpg" />
+    <Content Include="Resource\bootstrap\img\bg\3.jpg" />
+    <Content Include="Resource\bootstrap\img\bg\4.jpg" />
+    <Content Include="Resource\bootstrap\img\btn.png" />
+    <Content Include="Resource\bootstrap\img\construction.jpg" />
+    <Content Include="Resource\bootstrap\img\datatable-row-openclose.png" />
+    <Content Include="Resource\bootstrap\img\hidden.png" />
+    <Content Include="Resource\bootstrap\img\hor-menu-red-arrow.png" />
+    <Content Include="Resource\bootstrap\img\hor-menu-search-close-white.png" />
+    <Content Include="Resource\bootstrap\img\hor-menu-search-close.png" />
+    <Content Include="Resource\bootstrap\img\hor-menu-search.jpg" />
+    <Content Include="Resource\bootstrap\img\hor-menu-search.png" />
+    <Content Include="Resource\bootstrap\img\icon-color-close.png" />
+    <Content Include="Resource\bootstrap\img\icon-color.png" />
+    <Content Include="Resource\bootstrap\img\icon-img-down.png" />
+    <Content Include="Resource\bootstrap\img\icon-img-up.png" />
+    <Content Include="Resource\bootstrap\img\iconfont-shaixuan.png" />
+    <Content Include="Resource\bootstrap\img\inbox-nav-arrow-blue.png" />
+    <Content Include="Resource\bootstrap\img\input-spinner.gif" />
+    <Content Include="Resource\bootstrap\img\iphone.png" />
+    <Content Include="Resource\bootstrap\img\loading.gif" />
+    <Content Include="Resource\bootstrap\img\location.png" />
+    <Content Include="Resource\bootstrap\img\login_bgx.gif" />
+    <Content Include="Resource\bootstrap\img\mail.png" />
+    <Content Include="Resource\bootstrap\img\menu-toggler.png" />
+    <Content Include="Resource\bootstrap\img\overlay-icon.png" />
+    <Content Include="Resource\bootstrap\img\phone.png" />
+    <Content Include="Resource\bootstrap\img\portlet-collapse-icon-white.png" />
+    <Content Include="Resource\bootstrap\img\portlet-collapse-icon.png" />
+    <Content Include="Resource\bootstrap\img\portlet-config-icon-white.png" />
+    <Content Include="Resource\bootstrap\img\portlet-config-icon.png" />
+    <Content Include="Resource\bootstrap\img\portlet-expand-icon-white.png" />
+    <Content Include="Resource\bootstrap\img\portlet-expand-icon.png" />
+    <Content Include="Resource\bootstrap\img\portlet-reload-icon-white.png" />
+    <Content Include="Resource\bootstrap\img\portlet-reload-icon.png" />
+    <Content Include="Resource\bootstrap\img\portlet-remove-icon-white.png" />
+    <Content Include="Resource\bootstrap\img\portlet-remove-icon.png" />
+    <Content Include="Resource\bootstrap\img\profile\portfolio\logo_azteca.jpg" />
+    <Content Include="Resource\bootstrap\img\profile\portfolio\logo_conquer.jpg" />
+    <Content Include="Resource\bootstrap\img\profile\portfolio\logo_metronic.jpg" />
+    <Content Include="Resource\bootstrap\img\profile\profile-img.jpg" />
+    <Content Include="Resource\bootstrap\img\profile\profile-img.png" />
+    <Content Include="Resource\bootstrap\img\profile\profile.jpg" />
+    <Content Include="Resource\bootstrap\img\qq.png" />
+    <Content Include="Resource\bootstrap\img\reduce.png" />
+    <Content Include="Resource\bootstrap\img\remove-icon-small.png" />
+    <Content Include="Resource\bootstrap\img\search-icon-blue.png" />
+    <Content Include="Resource\bootstrap\img\search-icon-brown.png" />
+    <Content Include="Resource\bootstrap\img\search-icon-purple.png" />
+    <Content Include="Resource\bootstrap\img\search-icon-red.png" />
+    <Content Include="Resource\bootstrap\img\search-icon-white.png" />
+    <Content Include="Resource\bootstrap\img\search-icon.png" />
+    <Content Include="Resource\bootstrap\img\select-caret.png" />
+    <Content Include="Resource\bootstrap\img\service.png" />
+    <Content Include="Resource\bootstrap\img\shouji.png" />
+    <Content Include="Resource\bootstrap\img\sidebar-menu-arrow-green-reverse.png" />
+    <Content Include="Resource\bootstrap\img\sidebar-menu-arrow-green.png" />
+    <Content Include="Resource\bootstrap\img\sidebar-menu-arrow-reverse.png" />
+    <Content Include="Resource\bootstrap\img\sidebar-menu-arrow-right.png" />
+    <Content Include="Resource\bootstrap\img\sidebar-menu-arrow.png" />
+    <Content Include="Resource\bootstrap\img\sidebar-search-close-blue.png" />
+    <Content Include="Resource\bootstrap\img\sidebar-search-close-brown.png" />
+    <Content Include="Resource\bootstrap\img\sidebar-search-close-light.png" />
+    <Content Include="Resource\bootstrap\img\sidebar-search-close-purple.png" />
+    <Content Include="Resource\bootstrap\img\sidebar-search-close.png" />
+    <Content Include="Resource\bootstrap\img\sidebar-toggler-blue.jpg" />
+    <Content Include="Resource\bootstrap\img\sidebar-toggler-brown.jpg" />
+    <Content Include="Resource\bootstrap\img\sidebar-toggler-light.jpg" />
+    <Content Include="Resource\bootstrap\img\sidebar-toggler-purple.jpg" />
+    <Content Include="Resource\bootstrap\img\sidebar-toggler.jpg" />
+    <Content Include="Resource\bootstrap\img\sidebar-toggler.png" />
+    <Content Include="Resource\bootstrap\img\social\amazon.png" />
+    <Content Include="Resource\bootstrap\img\social\behance.png" />
+    <Content Include="Resource\bootstrap\img\social\blogger.png" />
+    <Content Include="Resource\bootstrap\img\social\deviantart.png" />
+    <Content Include="Resource\bootstrap\img\social\dribbble.png" />
+    <Content Include="Resource\bootstrap\img\social\dropbox.png" />
+    <Content Include="Resource\bootstrap\img\social\evernote.png" />
+    <Content Include="Resource\bootstrap\img\social\facebook.png" />
+    <Content Include="Resource\bootstrap\img\social\forrst.png" />
+    <Content Include="Resource\bootstrap\img\social\github.png" />
+    <Content Include="Resource\bootstrap\img\social\googleplus.png" />
+    <Content Include="Resource\bootstrap\img\social\instagram.png" />
+    <Content Include="Resource\bootstrap\img\social\jolicloud.png" />
+    <Content Include="Resource\bootstrap\img\social\last-fm.png" />
+    <Content Include="Resource\bootstrap\img\social\linkedin.png" />
+    <Content Include="Resource\bootstrap\img\social\picasa.png" />
+    <Content Include="Resource\bootstrap\img\social\pintrest.png" />
+    <Content Include="Resource\bootstrap\img\social\reddit.png" />
+    <Content Include="Resource\bootstrap\img\social\rss.png" />
+    <Content Include="Resource\bootstrap\img\social\skype.png" />
+    <Content Include="Resource\bootstrap\img\social\spotify.png" />
+    <Content Include="Resource\bootstrap\img\social\stumbleupon.png" />
+    <Content Include="Resource\bootstrap\img\social\tumblr.png" />
+    <Content Include="Resource\bootstrap\img\social\twitter.png" />
+    <Content Include="Resource\bootstrap\img\social\vimeo.png" />
+    <Content Include="Resource\bootstrap\img\social\vk.png" />
+    <Content Include="Resource\bootstrap\img\social\wordpress.png" />
+    <Content Include="Resource\bootstrap\img\social\xing.png" />
+    <Content Include="Resource\bootstrap\img\social\yahoo.png" />
+    <Content Include="Resource\bootstrap\img\social\youtube.png" />
+    <Content Include="Resource\bootstrap\img\UpFile.png" />
+    <Content Include="Resource\bootstrap\plugins\backstretch\jquery.backstretch.js" />
+    <Content Include="Resource\bootstrap\plugins\backstretch\jquery.backstretch.min.js" />
+    <Content Include="Resource\bootstrap\plugins\bigPic\images\close.png" />
+    <Content Include="Resource\bootstrap\plugins\bigPic\images\loading.gif" />
+    <Content Include="Resource\bootstrap\plugins\bigPic\images\next.png" />
+    <Content Include="Resource\bootstrap\plugins\bigPic\images\prev.png" />
+    <Content Include="Resource\bootstrap\plugins\bigPic\lightbox-plus-jquery.js" />
+    <Content Include="Resource\bootstrap\plugins\bigPic\lightbox.css" />
+    <Content Include="Resource\bootstrap\plugins\bootbox\bootbox.min.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\.gitignore" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\css\datepicker.css" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\bootstrap-datepicker.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.ar.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.bg.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.ca.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.cs.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.da.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.de.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.el.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.es.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.et.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.fi.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.fr.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.he.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.hr.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.hu.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.id.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.is.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.it.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.ja.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.ka.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.kr.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.lt.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.lv.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.mk.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.ms.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.nb.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.nl.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.no.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.pl.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.pt-BR.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.pt.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.ro.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.rs-latin.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.rs.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.ru.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.sk.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.sl.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.sq.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.sv.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.sw.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.th.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.tr.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.uk.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.zh-CN.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\js\locales\bootstrap-datepicker.zh-TW.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\tests\assets\coverage.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\tests\assets\jquery-1.7.1.min.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\tests\assets\mock.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\tests\assets\qunit-logging.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\tests\assets\qunit.css" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\tests\assets\qunit.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\tests\assets\utils.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\tests\run-qunit.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\tests\suites\calendar-weeks.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\tests\suites\component.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\tests\suites\data-api.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\tests\suites\events.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\tests\suites\formats.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\tests\suites\inline.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\tests\suites\keyboard_navigation\2011.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\tests\suites\keyboard_navigation\2012.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\tests\suites\keyboard_navigation\all.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\tests\suites\methods.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\tests\suites\mouse_navigation\2011.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\tests\suites\mouse_navigation\2012.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\tests\suites\mouse_navigation\all.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\tests\suites\noconflict.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\tests\suites\options.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\tests\tests.html" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\tests\_coverage.html" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-daterangepicker\daterangepicker-bs2.css" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-daterangepicker\daterangepicker-bs3.css" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-daterangepicker\daterangepicker.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-daterangepicker\moment.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-daterangepicker\moment.min.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\css\datetimepicker.css" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\bootstrap-datetimepicker.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.bg.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.ca.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.cs.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.da.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.de.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.el.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.es.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.fi.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.fr.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.he.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.hr.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.hu.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.id.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.is.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.it.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.ja.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.kr.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.lt.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.lv.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.ms.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.nb.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.nl.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.pl.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.pt-BR.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.pt.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.ro.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.rs-latin.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.rs.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.ru.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.sk.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.sl.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.sv.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.sw.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.th.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.tr.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.ua.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.uk.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.zh-CN.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.zh-TW.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\sample\bootstrap\css\bootstrap.css" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\sample\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\sample\bootstrap\img\glyphicons-halflings-white.png" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\sample\bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\sample\bootstrap\js\bootstrap.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\sample\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\sample\index.html" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\sample\jquery\jquery-1.8.3.min.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\screenshot\standard_day.png" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\screenshot\standard_day_meridian.png" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\screenshot\standard_decade.png" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\screenshot\standard_full.png" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\screenshot\standard_hour.png" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\screenshot\standard_hour_meridian.png" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\screenshot\standard_month.png" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\screenshot\standard_year.png" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-hover-dropdown\twitter-bootstrap-hover-dropdown.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-hover-dropdown\twitter-bootstrap-hover-dropdown.min.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-modal\.gitattributes" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-modal\.gitignore" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-modal\bs3.html" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-modal\css\bootstrap-modal-bs3patch.css" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-modal\css\bootstrap-modal.css" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-modal\img\ajax-loader.gif" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-modal\index.html" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-modal\js\bootstrap-modal.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-modal\js\bootstrap-modalmanager.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-modal\modal_ajax_test.html" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-timepicker\.gitignore" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-timepicker\compiled\timepicker.css" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-timepicker\js\bootstrap-timepicker.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-toastr\toastr.css" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-toastr\toastr.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-toastr\toastr.min.css" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-toastr\toastr.min.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap\css\bootstrap.css" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap\js\bootstrap.js" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Resource\bootstrap\plugins\data-tables\AjaxDataTable.js" />
+    <Content Include="Resource\bootstrap\plugins\data-tables\DT_bootstrap.css" />
+    <Content Include="Resource\bootstrap\plugins\data-tables\DT_bootstrap.js" />
+    <Content Include="Resource\bootstrap\plugins\data-tables\images\sort_asc.png" />
+    <Content Include="Resource\bootstrap\plugins\data-tables\images\sort_asc_disabled.png" />
+    <Content Include="Resource\bootstrap\plugins\data-tables\images\sort_both.png" />
+    <Content Include="Resource\bootstrap\plugins\data-tables\images\sort_desc.png" />
+    <Content Include="Resource\bootstrap\plugins\data-tables\images\sort_desc_disabled.png" />
+    <Content Include="Resource\bootstrap\plugins\data-tables\jquery.dataTables.js" />
+    <Content Include="Resource\bootstrap\plugins\excanvas.min.js" />
+    <Content Include="Resource\bootstrap\plugins\font-awesome\css\font-awesome.css" />
+    <Content Include="Resource\bootstrap\plugins\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Resource\bootstrap\plugins\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Resource\bootstrap\plugins\highcharts.js" />
+    <Content Include="Resource\bootstrap\plugins\holder.js" />
+    <Content Include="Resource\bootstrap\plugins\html5shiv.min.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-1.10.2.min.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-bootpag\jquery.bootpag.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-bootpag\jquery.bootpag.min.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-migrate-1.2.1.min.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-slimscroll\jquery.slimscroll.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-slimscroll\jquery.slimscroll.min.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-ui\images\animated-overlay.gif" />
+    <Content Include="Resource\bootstrap\plugins\jquery-ui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Resource\bootstrap\plugins\jquery-ui\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Resource\bootstrap\plugins\jquery-ui\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Resource\bootstrap\plugins\jquery-ui\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Resource\bootstrap\plugins\jquery-ui\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Resource\bootstrap\plugins\jquery-ui\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Resource\bootstrap\plugins\jquery-ui\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Resource\bootstrap\plugins\jquery-ui\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Resource\bootstrap\plugins\jquery-ui\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Resource\bootstrap\plugins\jquery-ui\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Resource\bootstrap\plugins\jquery-ui\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Resource\bootstrap\plugins\jquery-ui\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Resource\bootstrap\plugins\jquery-ui\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Resource\bootstrap\plugins\jquery-ui\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Resource\bootstrap\plugins\jquery-ui\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Resource\bootstrap\plugins\jquery-ui\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Resource\bootstrap\plugins\jquery-ui\images\ui-icons_222222_256x240.png" />
+    <Content Include="Resource\bootstrap\plugins\jquery-ui\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Resource\bootstrap\plugins\jquery-ui\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Resource\bootstrap\plugins\jquery-ui\images\ui-icons_454545_256x240.png" />
+    <Content Include="Resource\bootstrap\plugins\jquery-ui\images\ui-icons_888888_256x240.png" />
+    <Content Include="Resource\bootstrap\plugins\jquery-ui\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Resource\bootstrap\plugins\jquery-ui\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Resource\bootstrap\plugins\jquery-ui\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Resource\bootstrap\plugins\jquery-ui\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Resource\bootstrap\plugins\jquery-ui\jquery-ui-1.10.2.custom.min.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-ui\jquery-ui-1.10.3.custom.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-ui\jquery-ui-1.10.3.custom.min.css" />
+    <Content Include="Resource\bootstrap\plugins\jquery-ui\jquery-ui-1.10.3.custom.min.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\.gitattributes" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\.gitignore" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\dist\additional-methods.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\dist\additional-methods.min.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\dist\jquery.validate.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\dist\jquery.validate.min.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\Gruntfile.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\lib\jquery-1.6.4.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\lib\jquery-1.7.2.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\lib\jquery-1.8.3.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\lib\jquery-1.9.0.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\lib\jquery.form.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\lib\jquery.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\lib\jquery.mockjax.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_ar.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_bg.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_ca.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_cs.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_da.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_de.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_el.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_es.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_et.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_eu.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_fa.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_fi.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_fr.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_he.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_hr.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_hu.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_it.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_ja.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_ka.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_kk.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_ko.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_lt.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_lv.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_my.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_nl.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_no.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_pl.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_pt_BR.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_pt_PT.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_ro.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_ru.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_si.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_sk.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_sl.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_sr.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_sv.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_th.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_tr.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_uk.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_vi.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_zh.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\messages_zh_TW.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\methods_de.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\methods_nl.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\localization\methods_pt.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\test\events.html" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\test\firebug\errorIcon.png" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\test\firebug\firebug.css" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\test\firebug\firebug.html" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\test\firebug\firebug.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\test\firebug\firebugx.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\test\firebug\infoIcon.png" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\test\firebug\warningIcon.png" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\test\index.html" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\test\jquery.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\test\large.html" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\test\messages.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\test\methods.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\test\qunit\qunit.css" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\test\qunit\qunit.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\test\rules.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\test\selects\index.html" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\test\tabs.html" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\test\test.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery.blockui.min.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery.md5.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery.mockjax.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery.pulsate.min.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery.sparkline.min.js" />
+    <Content Include="Resource\bootstrap\plugins\jquery.ztree.core-3.5.js" />
+    <Content Include="Resource\bootstrap\plugins\moment.min.js" />
+    <Content Include="Resource\bootstrap\plugins\respond.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2-spinner.gif" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2.min.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2.png" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2x2.png" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_ar.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_bg.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_ca.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_cs.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_da.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_de.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_el.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_es.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_et.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_eu.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_fa.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_fi.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_fr.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_gl.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_he.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_hr.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_hu.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_id.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_is.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_it.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_ja.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_ko.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_lt.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_lv.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_mk.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_ms.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_nl.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_no.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_pl.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_pt-BR.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_pt-PT.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_ro.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_ru.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_sk.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_sv.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_th.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_tr.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_ua.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_vi.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_zh-CN.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_zh-TW.js" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_metro.css" />
+    <Content Include="Resource\bootstrap\plugins\uniform\css\uniform.default.css" />
+    <Content Include="Resource\bootstrap\plugins\uniform\css\uniform.default.min.css" />
+    <Content Include="Resource\bootstrap\plugins\uniform\images\bg-input-focus.png" />
+    <Content Include="Resource\bootstrap\plugins\uniform\images\bg-input.png" />
+    <Content Include="Resource\bootstrap\plugins\uniform\images\sprite.png" />
+    <Content Include="Resource\bootstrap\plugins\uniform\images\sprite_original.png" />
+    <Content Include="Resource\bootstrap\plugins\uniform\jquery.uniform.js" />
+    <Content Include="Resource\bootstrap\plugins\uniform\jquery.uniform.min.js" />
+    <Content Include="Resource\bootstrap\scripts\app.js" />
+    <Content Include="Resource\bootstrap\scripts\custom.js" />
+    <Content Include="Resource\bootstrap\scripts\index.js" />
+    <Content Include="Resource\bootstrap\scripts\bigImg.js" />
+    <Content Include="Resource\bootstrap\scripts\login-soft.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Resource\bootstrap\plugins\bootbox\README.md" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\.hgignore" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\.hgtags" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\.travis.yml" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\bower.json" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\build\build.less" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\build\build_standalone.less" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\CHANGELOG.md" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\composer.json" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\CONTRIBUTING.md" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\less\datepicker.less" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\LICENSE" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\README.md" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datepicker\tests\README.md" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-daterangepicker\README.md" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\.travis.yml" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\build\build.less" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\build\build_standalone.less" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-datetimepicker\less\datetimepicker.less" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-hover-dropdown\bower.json" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-modal\component.json" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-modal\composer.json" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-modal\params.json" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-timepicker\less\timepicker.less" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-timepicker\README.md" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-toastr\toastr.less" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap-toastr\toastr.min.js.map" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Resource\bootstrap\plugins\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Resource\bootstrap\plugins\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Resource\bootstrap\plugins\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Resource\bootstrap\plugins\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Resource\bootstrap\plugins\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Resource\bootstrap\plugins\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Resource\bootstrap\plugins\font-awesome\less\core.less" />
+    <Content Include="Resource\bootstrap\plugins\font-awesome\less\fixed-width.less" />
+    <Content Include="Resource\bootstrap\plugins\font-awesome\less\font-awesome.less" />
+    <Content Include="Resource\bootstrap\plugins\font-awesome\less\icons.less" />
+    <Content Include="Resource\bootstrap\plugins\font-awesome\less\larger.less" />
+    <Content Include="Resource\bootstrap\plugins\font-awesome\less\list.less" />
+    <Content Include="Resource\bootstrap\plugins\font-awesome\less\mixins.less" />
+    <Content Include="Resource\bootstrap\plugins\font-awesome\less\path.less" />
+    <Content Include="Resource\bootstrap\plugins\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Resource\bootstrap\plugins\font-awesome\less\spinning.less" />
+    <Content Include="Resource\bootstrap\plugins\font-awesome\less\stacked.less" />
+    <Content Include="Resource\bootstrap\plugins\font-awesome\less\variables.less" />
+    <Content Include="Resource\bootstrap\plugins\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Resource\bootstrap\plugins\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Resource\bootstrap\plugins\font-awesome\scss\_core.scss" />
+    <Content Include="Resource\bootstrap\plugins\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Resource\bootstrap\plugins\font-awesome\scss\_icons.scss" />
+    <Content Include="Resource\bootstrap\plugins\font-awesome\scss\_larger.scss" />
+    <Content Include="Resource\bootstrap\plugins\font-awesome\scss\_list.scss" />
+    <Content Include="Resource\bootstrap\plugins\font-awesome\scss\_mixins.scss" />
+    <Content Include="Resource\bootstrap\plugins\font-awesome\scss\_path.scss" />
+    <Content Include="Resource\bootstrap\plugins\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Resource\bootstrap\plugins\font-awesome\scss\_spinning.scss" />
+    <Content Include="Resource\bootstrap\plugins\font-awesome\scss\_stacked.scss" />
+    <Content Include="Resource\bootstrap\plugins\font-awesome\scss\_variables.scss" />
+    <Content Include="Resource\bootstrap\plugins\jquery-slimscroll\slimScroll.jquery.json" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\.travis.yml" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\CONTRIBUTING.md" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\package.json" />
+    <Content Include="Resource\bootstrap\plugins\jquery-validation\validation.jquery.json" />
+    <Content Include="Resource\bootstrap\plugins\select2\bower.json" />
+    <Content Include="Resource\bootstrap\plugins\select2\release.sh" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2.jquery.json" />
+    <Content Include="Resource\bootstrap\plugins\select2\select2_locale_en.js.template" />
+    <Content Include="Resource\bootstrap\plugins\uniform\css\uniform.default.scss" />
+    <Content Include="Resource\bootstrap\plugins\uniform\README.textile" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Main\Index.cshtml" />
+    <Content Include="Views\Shared\Left.cshtml" />
+    <Content Include="Views\Shared\Top.cshtml" />
+    <Content Include="Views\Merchant\Index.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tuquan.Common\Tuquan.Common.csproj">
+      <Project>{14bd9e76-9595-44ff-81eb-1a233d5a7690}</Project>
+      <Name>Tuquan.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tuquan.Manager\Tuquan.Manager.csproj">
+      <Project>{82ad8e34-8ea8-401f-a385-043d42e364d4}</Project>
+      <Name>Tuquan.Manager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tuquan.Model\Tuquan.Model.csproj">
+      <Project>{c0fcdf32-ad7a-4d55-b666-54a51215329a}</Project>
+      <Name>Tuquan.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49530</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49620/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

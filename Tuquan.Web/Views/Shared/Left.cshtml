@@ -1,0 +1,49 @@
+﻿
+<div class="page-sidebar-wrapper" id="LeftMenu">
+    <div class="page-sidebar navbar-collapse collapse">
+        <!-- BEGIN SIDEBAR MENU -->
+        <ul class="page-sidebar-menu">
+            <li class="sidebar-toggler-wrapper">
+                <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                <div class="sidebar-toggler hidden-phone">
+                </div>
+                <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+            </li>
+            <li class="start  ">
+                <a href="/main">
+                    <i class="fa fa-home"></i>
+                    <span class="title">首页</span>
+                </a>
+            </li>
+            <li class="open">
+                <a href="/merchant">
+                    <i class="fa  fa-hospital"></i>
+                    <span class="title">商家</span>
+                </a>
+            </li>
+            <li class="open">
+                <a href="/customer">
+                    <i class="fa fa-user"></i>
+                    <span class="title">用户</span>
+                </a>
+            </li>
+
+            <li class="">
+                <a href="javascript:;">
+                    <i class="fa fa-bookmark-o"></i>
+                    <span class="title">系统管理</span><span class="arrow"></span>
+                </a>
+                <ul class="sub-menu" style="display: block;">
+                    <li><a href="/system/sysuser">管理员</a></li>
+                    <li ><a href="/system/configure">配置</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<script>
+    $(function () {
+        var path = window.location.pathname == "/" ? "/main" : window.location.pathname;
+        $('.page-sidebar-menu a[href="' + path + '"]').parents('li').addClass('active');
+    });
+</script>
