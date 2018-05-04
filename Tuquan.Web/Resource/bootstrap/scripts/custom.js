@@ -6,6 +6,68 @@ var Custom = function () {
         MerchantService: function () {
             $('#serviceDetailModal').on('hidden.bs.modal', function () {
                 clearForm("serviceDetailForm");
+                $('#PicUrl').attr('src', '/Resource/bootstrap/img/UpFile.png')
+                $("#saveServiceBtn").removeAttr("disabled");
+            });
+
+            $('#merchantDetailModal').on('hidden.bs.modal', function () {
+                clearForm("merchantDetailForm");
+                $('#SignBoard,#Licence').attr('src', '/Resource/bootstrap/img/UpFile.png')
+                $("#saveMerchantBtn").removeAttr("disabled");
+            });
+
+            $('#QRCodeModal').on('hidden.bs.modal', function () {
+                $("#QRCodeModal .row").empty();
+            });
+
+            $('#merchantDetailModal,#serviceMenuModal,#makeQRCodeModal').on('hidden.bs.modal', function () {
+                $('#MerchantID').val('');
+            });
+
+            $("#merchantDetailForm").validate({
+                //debug: true,      //调试模式（并不会提交）
+                rules: {
+                    Name: {
+                        required: true,
+                        stringCheck: true
+                    },
+                    Owner: {
+                        required: true,
+                        stringCheck: true
+                    },
+                    Phone: {
+                        required: true,
+                        isPhone: true
+                    },
+                    Address: {
+                        required: true,
+                        SpecialCharacters: true
+                    },
+                    Discount: {
+                        required: true,
+                        max: 100,
+                        PositiveInteger: true
+                    }
+                },
+
+                messages: {
+                    Name: {
+                        required: "<span style='color:red'>名称不能为空</span>",
+                    },
+                    Owner: {
+                        required: "<span style='color:red'>登记人不能为空</span>",
+                    },
+                    Phone: {
+                        required: "<span style='color:red'>电话不能为空</span>",
+                    },
+                    Address: {
+                        required: "<span style='color:red'>地址不能为空</span>",
+                    },
+                    Discount: {
+                        required: "<span style='color:red'>折扣不能为空</span>",
+                        max: "<span style='color:red'>不能大于100</span>"
+                    }
+                }
             });
 
             $("#serviceDetailForm").validate({
@@ -44,6 +106,20 @@ var Custom = function () {
                     }
                 }
             });
+
+            $("#makeQRCodeFrom").validate({
+                rules: {
+                    codeNum: {
+                        required: true,
+                        PositiveInteger: true
+                    }
+                },
+                messages: {
+                    codeNum: {
+                        required: "<span style='color:red'>数量不能为空</span>",
+                    },
+                }
+            })
         }
 
 
@@ -158,13 +234,18 @@ jQuery.validator.addMethod("money", function (value, element) {
 
 //----------------------------------------加红-----------------------------------------------------
 
-var path = window.location.pathname;
-if (path.indexOf("Home") > 0) {
-    path = path.substr(path.substr("/"));
+//var path = window.location.pathname;
+//if (path.indexOf("Home") > 0) {
+//    path = path.substr(path.substr("/"));
+//}
+//$('.page-sidebar-menu a[href="' + path + '"]').parents('li').addClass('active').find('span.arrow');
+var path = window.location.pathname == "/" ? "/main" : window.location.pathname;
+$('.page-sidebar-menu a[href="' + path + '"]').parents('li').addClass('active');
+var collapseMenu = function () {
+    $t = $('.page-sidebar');
+    if ($t.attr('style')) $t.removeAttr('style')
+    else $t.attr('style', 'width:225px !important;')
 }
-$('.page-sidebar-menu a[href="' + path + '"]').parents('li').addClass('active').find('span.arrow');
-
-
 //----------------------------------------End加红-----------------------------------------------------
 //
 

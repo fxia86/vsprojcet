@@ -1,4 +1,4 @@
-var Login = function () {
+ï»¿var Login = function () {
 
     var handleLogin = function () {
         $('.login-form').validate({
@@ -19,10 +19,10 @@ var Login = function () {
 
             messages: {
                 account: {
-                    required: "ÓÃ»§Ãû²»ÄÜÎª¿Õ"
+                    required: "ç”¨æˆ·åä¸èƒ½ä¸ºç©º"
                 },
                 pwd: {
-                    required: "ÃÜÂë²»ÄÜÎª¿Õ"
+                    required: "å¯†ç ä¸èƒ½ä¸ºç©º"
                 }
             },
 

@@ -24,6 +24,6 @@ namespace Tuquan.Model
 
         public string SignBoard { get; set; }
 
-        public string Lisence { get; set; }
+        public string Licence { get; set; }
     }
 }

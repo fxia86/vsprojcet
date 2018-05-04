@@ -1,41 +1,175 @@
-﻿<div class="tab-content">
-    <div class="tab-pane fade active in" id="tab_2_1">
-        <div style="border:1px solid #cccccc;border-radius:5px;padding:7px;width:100%;height:45px;">
-            <ul class="inline ClearFloat InfoBlock">
-                @*<li>维修工区</li>
-                    <li>
-                        <select class="form-control" id="siteListSel"></select>
-                    </li>
-                    <li>
-                        工区负责人
-                    </li>
-                    <li>
-                        <select class="form-control" id="siteUserSel"></select>
-                    </li>*@
-                <li>商家名称</li>
+﻿
+<div class="tab-content">
+    <input type="text" id="MerchantID" class="hidden">
+    <div style="border:1px solid #cccccc;border-radius:5px;padding:7px;width:100%;height:45px;">
+        <ul class="inline ClearFloat InfoBlock">
+            @*<li>维修工区</li>
                 <li>
-                    <input id="searchName" value="">
+                    <select class="form-control" id="siteListSel"></select>
                 </li>
                 <li>
-                    <a href="#" class="btn btn-sm dark" onclick="getInspectionPlanList()">&nbsp;&nbsp;检索&nbsp;&nbsp;<i class="fa fa-search"></i></a>
-                    @*&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="btn btn-sm default" id="reset">&nbsp;&nbsp;重置&nbsp;&nbsp;<i class="fa fa-refresh"></i></a>*@
+                    工区负责人
                 </li>
-            </ul>
-        </div>
-        <br />
-        <table class="table table-striped table-hover table-condensed  table-responsive tableCenter" id="merchantTable"></table>
+                <li>
+                    <select class="form-control" id="siteUserSel"></select>
+                </li>*@
+            <li>商家名称</li>
+            <li>
+                <input id="searchName" value="">
+            </li>
+            <li>
+                <a href="#" class="btn btn-sm dark" onclick="getInspectionPlanList()">&nbsp;&nbsp;检索&nbsp;&nbsp;<i class="fa fa-search"></i></a>
+                @*&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="btn btn-sm default" id="reset">&nbsp;&nbsp;重置&nbsp;&nbsp;<i class="fa fa-refresh"></i></a>*@
+            </li>
+        </ul>
     </div>
+    <br />
+    <table class="table table-striped table-hover table-condensed  table-responsive tableCenter" id="merchantTable"></table>
 </div>
-
 <div class="clearfix">
 </div>
 
+<div class="modal fade" id="merchantDetailModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">商家详情</h4>
+            </div>
+            <div class="modal-body">
+                <br />
+                <form id="merchantDetailForm">
+                    <div class="row ">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">
+                                    名称
+                                    <span class="required">
+                                        *
+                                    </span>
+                                </label>
+                                <div class="col-md-9">
+                                    <input type="text" id="Name" data-field="Name" name="Name" class="form-control" placeholder="请输入商家名称">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row ">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">
+                                    登记人
+                                    <span class="required">
+                                        *
+                                    </span>
+                                </label>
+                                <div class="col-md-9">
+                                    <input type="text" id="Owner" data-field="Owner" name="Owner" class="form-control" placeholder="请输入商家登记人">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row ">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">
+                                    联系电话
+                                    <span class="required">
+                                        *
+                                    </span>
+                                </label>
+                                <div class="col-md-9">
+                                    <input type="text" id="Phone" data-field="Phone" name="Phone" class="form-control" placeholder="请输入商家联系电话">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row ">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">
+                                    地址
+                                    <span class="required">
+                                        *
+                                    </span>
+                                </label>
+                                <div class="col-md-9">
+                                    <input type="text" id="Address" data-field="Address" name="Address" class="form-control" placeholder="请输入商家地址">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row ">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">
+                                    折扣
+                                    <span class="required">
+                                        *
+                                    </span>
+                                </label>
+                                <div class="col-md-9">
+                                    <input type="text" id="Discount" data-field="Discount" name="Discount" class="form-control" placeholder="请输入1-100，自动计算百分比折扣">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row ">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">
+                                    店招
+                                    <span class="required">
+                                        *
+                                    </span>
+                                </label>
+                                <div class="col-md-9">
+                                    <img src="/Resource/bootstrap/img/UpFile.png" id="SignBoard" name="SignBoard" data-field="SignBoard" width="150" height="150" class="hand">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row ">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">
+                                    营业执照
+                                    <span class="required">
+                                        *
+                                    </span>
+                                </label>
+                                <div class="col-md-9">
+                                    <img src="/Resource/bootstrap/img/UpFile.png" id="Licence" name="Licence" data-field="Licence" width="150" height="150" class="hand">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <br />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn blue" id="saveMerchantBtn" onclick="saveMerchant()">保存</button>
+                <button type="button" class="btn default" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
 <div class="modal fade" id="serviceMenuModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content modal-content-srewrite">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title"><span id="menuTitle"></span> —— 菜单</h4>
+                <h4 class="modal-title">
+                    <span id="menuTitle"></span> —— 菜单
+                </h4>
             </div>
             <div class="modal-body">
                 <div class="panel-group" id="accordion">
@@ -50,14 +184,12 @@
         </div>
     </div>
 </div>
-
 <div class="modal fade" id="serviceDetailModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                 <h4 class="modal-title">菜品详情</h4>
-                <input type="text" id="MerchantID" class="hidden">
             </div>
             <div class="modal-body">
                 <br />
@@ -66,13 +198,13 @@
                     <div class="row ">
                         <div class="col-md-10 col-md-offset-1">
                             <div class="form-group">
-                                <label class="control-label col-md-4">
+                                <label class="control-label col-md-2">
                                     名称
                                     <span class="required">
                                         *
                                     </span>
                                 </label>
-                                <div class="col-md-8">
+                                <div class="col-md-10">
                                     <input type="text" id="Name" data-field="Name" name="Name" class="form-control" placeholder="请输入菜品名称">
                                 </div>
                             </div>
@@ -82,13 +214,13 @@
                     <div class="row ">
                         <div class="col-md-10 col-md-offset-1">
                             <div class="form-group">
-                                <label class="control-label col-md-4">
+                                <label class="control-label col-md-2">
                                     类别
                                     <span class="required">
                                         *
                                     </span>
                                 </label>
-                                <div class="col-md-8">
+                                <div class="col-md-10">
                                     <input type="text" id="Classify" data-field="Classify" name="Classify" class="form-control" placeholder="请输入菜品类别">
                                 </div>
                             </div>
@@ -98,13 +230,13 @@
                     <div class="row ">
                         <div class="col-md-10 col-md-offset-1">
                             <div class="form-group">
-                                <label class="control-label col-md-4">
+                                <label class="control-label col-md-2">
                                     价格
                                     <span class="required">
                                         *
                                     </span>
                                 </label>
-                                <div class="col-md-8">
+                                <div class="col-md-10">
                                     <input type="text" id="Price" data-field="Price" name="Price" class="form-control" placeholder="请输入菜品价格">
                                 </div>
                             </div>
@@ -114,13 +246,13 @@
                     <div class="row ">
                         <div class="col-md-10 col-md-offset-1">
                             <div class="form-group">
-                                <label class="control-label col-md-4">
+                                <label class="control-label col-md-2">
                                     描述
                                     <span class="required">
                                         *
                                     </span>
                                 </label>
-                                <div class="col-md-8">
+                                <div class="col-md-10">
                                     <input type="text" id="Description" data-field="Description" name="Description" class="form-control" placeholder="请输入菜品描述">
                                 </div>
                             </div>
@@ -130,17 +262,14 @@
                     <div class="row ">
                         <div class="col-md-10 col-md-offset-1">
                             <div class="form-group">
-                                <label class="control-label col-md-4">
+                                <label class="control-label col-md-2">
                                     图片
                                     <span class="required">
                                         *
                                     </span>
                                 </label>
                                 <div class="col-md-8">
-                                    <div id="upDiv">
-                                        <input type="text" id="filename" data-field="PicUrl" style="width:195px;display:inline-block;" class="form-control" placeholder="" />
-                                        <a id="UpFile" href="javascript:" class="btn blue btn-sm">选择文件</a>
-                                    </div>
+                                    <img src="/Resource/bootstrap/img/UpFile.png" id="PicUrl" name="PicUrl" data-field="PicUrl" width="150" height="150" class="hand" id="PicUrl">
                                 </div>
                             </div>
                         </div>
@@ -157,73 +286,129 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
-@*<style>
-        .modal.left .modal-dialog,
-        .modal.right .modal-dialog {
-            position: fixed;
-            margin: auto;
-            top: 50px;
-            width: 480px;
-            height: 100%;
-            -webkit-transform: translate3d(0%, 0, 0);
-            -ms-transform: translate3d(0%, 0, 0);
-            -o-transform: translate3d(0%, 0, 0);
-            transform: translate3d(0%, 0, 0);
-        }
+<style>
+    .modal.left .modal-dialog,
+    .modal.right .modal-dialog {
+        position: fixed;
+        margin: auto;
+        top: 50px;
+        width: 480px;
+        height: 100%;
+        -webkit-transform: translate3d(0%, 0, 0);
+        -ms-transform: translate3d(0%, 0, 0);
+        -o-transform: translate3d(0%, 0, 0);
+        transform: translate3d(0%, 0, 0);
+    }
 
-        .modal.left .modal-content,
-        .modal.right .modal-content {
-            height: 100%;
-            overflow-y: auto;
-        }
+    .modal.left .modal-content,
+    .modal.right .modal-content {
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+    }
 
-        .modal.left .modal-body,
-        .modal.right .modal-body {
-            padding: 15px 15px 80px;
-        }
+    .modal.left .modal-body,
+    .modal.right .modal-body {
+        padding: 15px 15px 80px;
+    }
 
-        /*Left*/
-        .modal.left.fade .modal-dialog {
-            left: -320px;
-            -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
-            -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
-            -o-transition: opacity 0.3s linear, left 0.3s ease-out;
-            transition: opacity 0.3s linear, left 0.3s ease-out;
-        }
+    /*Left*/
+    .modal.left.fade .modal-dialog {
+        left: -320px;
+        -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+        -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+        -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+        transition: opacity 0.3s linear, left 0.3s ease-out;
+    }
 
-        .modal.left.fade.in .modal-dialog {
-            left: 0;
-        }
+    .modal.left.fade.in .modal-dialog {
+        left: 0;
+    }
 
-        /*Right*/
-        .modal.right.fade .modal-dialog {
-            right: -320px;
-            -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
-            -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
-            -o-transition: opacity 0.3s linear, right 0.3s ease-out;
-            transition: opacity 0.3s linear, right 0.3s ease-out;
-        }
+    /*Right*/
+    .modal.right.fade .modal-dialog {
+        right: -320px;
+        -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+        -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+        -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+        transition: opacity 0.3s linear, right 0.3s ease-out;
+    }
 
-        .modal.right.fade.in .modal-dialog {
-            right: 0;
-        }
+    .modal.right.fade.in .modal-dialog {
+        right: 0;
+    }
 
-        /* ----- MODAL STYLE ----- */
-        .modal-content {
-            border-radius: 0;
-            border: none;
-        }
+    /* ----- MODAL STYLE ----- */
+    .modal-content {
+        border-radius: 0;
+        border: none;
+    }
 
-        .modal-header {
-            border-bottom-color: #EEEEEE;
-            background-color: #FAFAFA;
-        }
-    </style>*@
+    .modal-header {
+        border-bottom-color: #EEEEEE;
+        background-color: #FAFAFA;
+    }
+</style>
+<div class="modal fade" id="makeQRCodeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">生成二维码</h4>
+            </div>
+            <div class="modal-body">
+                <form id="makeQRCodeFrom">
+                    <div class="row ">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="form-group">
+                                <label class="control-label col-md-2">
+                                    数量
+                                    <span class="required">
+                                        *
+                                    </span>
+                                </label>
+                                <div class="col-md-6">
+                                    <input type="text" id="logo" data-field="logo" class="hidden">
+                                    <input type="text" id="codeNum" name="codeNum" maxlength="2" class="form-control" placeholder="请输入数量">
+                                </div>
+                                <div class="col-md-4">
+                                    <button type="button" class="btn blue" id="makeQRCodeBtn" onclick="makeQRCode()">创建</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal right fade" id="QRCodeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">二维码</h4>
+                <a class="btn btn-primary fl-r" style="margin-top:-30px;" onclick="downloadQRCode()">下载<i class="fa fa-download ml5"></i> </a>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="QRCodeSImgCanvas" class="dis-no"></div>
 
 @section scripts{
     <script src="~/Resource/bootstrap/scripts/bigImg.js"></script>
+    <script src="~/Resource/bootstrap/scripts/jquery.qrcode.min.js"></script>
+    <script src="~/Resource/bootstrap/plugins/plupload/plupload.full.min.js"></script>
+    <script src="~/Resource/bootstrap/scripts/jszip.min.js"></script>
+    <script src="~/Resource/bootstrap/scripts/filesaver.js"></script>
     <script>
         Custom.MerchantService();
+        var oTable, sTable;
         var getInspectionPlanList = function () {
             var name = $('#searchName').val();
             var aoColumns = new Array();
@@ -237,7 +422,7 @@
                 }
             });
             aoColumns.push({
-                "sTitle": "营业执照", "mData": "Lisence", "mRender": function (data, type, full) {
+                "sTitle": "营业执照", "mData": "Licence", "mRender": function (data, type, full) {
                     return '<img src="' + data + '" width="100" height="100" for_big="true"/>';
                 }
             });
@@ -246,16 +431,17 @@
                 "sTitle": "操作", "mData": "ID", "bSortable": false, "sWidth": "280px", "sClass": "TdMargin",
                 "mRender": function (data, type, full) {
                     var htmlText = '';
-                    htmlText += '<a href="#serviceMenuModal"  data-toggle="modal" onclick="initServiceMenu(\'' + data + '\',\'' + full.Name + '\')">编辑</a>';
                     htmlText += '<a href="#serviceMenuModal"  data-toggle="modal" onclick="initServiceMenu(\'' + data + '\',\'' + full.Name + '\')">菜单</a>';
-                    htmlText += '<a href="#serviceMenuModal"  data-toggle="modal" onclick="initServiceMenu(\'' + data + '\',\'' + full.Name + '\')">生成二维码</a>';
+                    htmlText += '<a href="#makeQRCodeModal"  data-toggle="modal" onclick="initQRCode(\'' + data + '\',\'' + full.SignBoard + '\')">生成二维码</a>';
+                    htmlText += "<a href='#merchantDetailModal'  data-toggle='modal' onclick='editMerchant(" + JSON.stringify(full) + ")'>编辑</a>";
+                    htmlText += '<a href="#"  onclick="deleteMerchant(\'' + data + '\',\'' + full.Name + '\')">删除</a>';
                     return htmlText;
                 }
             });
             oTable = AjaxDataTable('merchantTable', '/merchant/getmerchantlist?name=' + name, aoColumns);
         };
         getInspectionPlanList();
-        var sTable;
+
         var initServiceMenu = function (ID, name) {
             $('#MerchantID').val(ID);
             $('#menuTitle').text(name);
@@ -273,11 +459,53 @@
                 "sTitle": "操作", "mData": "ID", "bSortable": false, "sWidth": "280px", "sClass": "TdMargin",
                 "mRender": function (data, type, full) {
                     var htmlText = '';
-                    htmlText += "<a href='#serviceDetailModal' data-toggle='modal' onclick='editService(" + JSON.stringify(full) + ")'>编辑</a>";
+                    htmlText += "<a href='#serviceDetailModal'  data-toggle='modal' onclick='editService(" + JSON.stringify(full) + ")'>编辑</a>";
+                    htmlText += '<a href="#" onclick="deleteService(\'' + data + '\',\'' + full.Name + '\')">删除</a>';
                     return htmlText;
                 }
             });
             sTable = AjaxDataTable('serviceMenuTable', '/merchant/getmerchantservicelist?merchantID=' + ID, aoColumns);
+        }
+
+        var editMerchant = function (data) {
+            if (!data.Licence) {
+                data.Licence = "/Resource/bootstrap/img/UpFile.png";
+            }
+            if (!data.SignBoard) {
+                data.SignBoard = "/Resource/bootstrap/img/UpFile.png";
+            }
+            modelFormInit('#merchantDetailForm', data);
+            $('#MerchantID').val(data.ID);
+        }
+
+        var saveMerchant = function () {
+            if ($("#merchantDetailForm").validate().form()) {
+                if ($('#SignBoard').attr('src') == "/Resource/bootstrap/img/UpFile.png" || $('#Licence').attr('src') == "/Resource/bootstrap/img/UpFile.png") {
+                    alert("请上传图片！")
+                    return
+                }
+                $("#saveMerchantBtn").attr("disabled", true);
+                var model = $.parseJSON(getFormJson("merchantDetailForm").replace(/\n/g, "\\n").replace(/\r/g, "\\r"));
+                model.ID = $('#MerchantID').val();
+                $.post("/merchant/savemerchant", model, function (data) {
+                    alert("编辑" + (data ? "成功" : "失败"))
+                    if (data) {
+                        $('#merchantDetailModal').modal('hide');
+                        oTable.fnDraw(false);
+                    }
+                });
+            }
+        }
+
+        var deleteMerchant = function (ID, name) {
+            if (confirm("确定删除" + name + "?")) {
+                $.post("/merchant/deletemerchant", { ID: ID }, function (data) {
+                    alert("删除" + (data ? "成功" : "失败"))
+                    if (data) {
+                        oTable.fnDraw(false);
+                    }
+                });
+            }
         }
 
         var editService = function (data) {
@@ -286,12 +514,17 @@
 
         var saveService = function () {
             if ($("#serviceDetailForm").validate().form()) {
-                if (true) {
-                    $("#saveServiceBtn").attr("disabled");
+                var merchantID = $('#MerchantID').val();
+                if ($('#PicUrl').attr('src') == "/Resource/bootstrap/img/UpFile.png") {
+                    alert("请上传图片！")
+                    return
+                }
+                if (merchantID.length > 0) {
+                    $("#saveServiceBtn").attr("disabled", true);
                     var model = $.parseJSON(getFormJson("serviceDetailForm").replace(/\n/g, "\\n").replace(/\r/g, "\\r"));
+                    model.MerchantID = merchantID;
                     $.post("/merchant/savemerchantservice", model, function (data) {
-                        alert((model.ID ? "编辑" : "添加") + data ? "成功" : "失败")
-                        $("#saveServiceBtn").removeAttr("disabled");
+                        alert((model.ID ? "编辑" : "添加") + (data ? "成功" : "失败"))
                         if (data) {
                             $('#serviceDetailModal').modal('hide');
                             sTable.fnDraw(false);
@@ -301,6 +534,95 @@
             }
         }
 
+        var deleteService = function (ID, name) {
+            if (confirm("确定删除" + name + "?")) {
+                $.post("/merchant/deletemerchantservice", { ID: ID }, function (data) {
+                    alert("删除" + (data ? "成功" : "失败"))
+                    if (data) {
+                        sTable.fnDraw(false);
+                    }
+                });
+            }
+        }
+
+        var initQRCode = function (ID, logo) {
+            $('#MerchantID').val(ID);
+            $('#logo').val(logo);
+        }
+
+        var qrcodes = [];
+        var makeQRCode = function () {
+            if ($("#makeQRCodeFrom").validate().form()) {
+                var merchantID = $('#MerchantID').val();
+                var codeNum = $('#codeNum').val();
+                var logo = $('#logo').val();
+                qrcodes = [];
+                for (var i = 1; i <= codeNum; i++) {
+                    $('#QRCodeSImgCanvas').qrcode({
+                        width: 140,
+                        height: 140,
+                        text: "https://code.tuquan.com/" + i,
+                        src: logo
+                    });
+                    var imgUrl = $("canvas")[0].toDataURL("image/png");
+                    qrcodes.push(imgUrl);
+                    var h = '<div class="col-md-5 col-md-offset-1">';
+                    h += '<img src="' + imgUrl + '"/><br />';
+                    h += '<div class="tac">' + i + '#</div></div>';
+                    $('#QRCodeSImgCanvas').empty();
+                    $("#QRCodeModal .row").append(h);
+                };
+
+                $("#QRCodeModal").modal('show');
+                $("#makeQRCodeModal").modal('hide');
+            }
+        }
+
+        var downloadQRCode = function () {
+            var zip = new JSZip();
+            qrcodes.map(function (v, i) {
+                zip.file((i + 1) + '#.png', v.split(';base64,')[1], { base64: true });
+            })
+            zip.generateAsync({ type: "blob" })
+                .then(function (content) {
+                    saveAs(content, "qrcode.zip");
+                });
+        }
+
+        var initUploader = function (browse, url) {
+            var uploader = new plupload.Uploader({
+                browse_button: browse,
+                url: url,
+                max_file_size: '5mb',
+                multi_selection: false,
+                filters: {
+                    mime_types: [
+                        { title: "图片文件", extensions: "jpg,jpeg,png,bmp" }
+                    ]
+                }
+            });
+            uploader.init();
+            uploader.bind('FilesAdded', function (uploader, files) {
+                previewImage(files[0], function (imgsrc) {
+                    document.getElementById(browse).src = imgsrc;
+                });
+            });
+            function previewImage(file, callback) {
+                if (!file || !/image\//.test(file.type)) return;
+                var fr = new mOxie.FileReader();
+                fr.onload = function () {
+                    callback(fr.result);
+                    fr.destroy();
+                    fr = null;
+                }
+                fr.readAsDataURL(file.getSource());
+            }
+            return uploader;
+        }
+
+        var servicePicUploader = initUploader('PicUrl', ' ');
+        var signBoradUploader = initUploader('SignBoard', ' ');
+        var LicenseBoradUploader = initUploader('Licence', ' ');
 
     </script>
 }

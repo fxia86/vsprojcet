@@ -19,7 +19,7 @@ var AjaxDataTable = function (dataTableID, sAjaxSource, aoColumns, Component, ao
     if (typeof (component.bAsync) == "undefined")
         component.bAsync = true;         //设置是同步还是异步。false:同步;true:异步
 
-   var oTableD = $('#' + dataTableID).dataTable({
+    var oTableD = $('#' + dataTableID).dataTable({
         "bDestroy": component.bDestroy,
         "sDom": "<'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r>t<'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>", //default layout without horizontal scroll(remove this setting to enable horizontal scroll for the table)
         "aLengthMenu": [[5, 10, 20, 50], [5, 10, 20, 50]],//修改分页
@@ -72,12 +72,11 @@ var getFormJson = function (id) {
     var json = "{";
     $("#" + id).find("[data-field]").each(function () {
         var t = $(this);
-        var data = t.val() != "undefind" ? $.trim(t.val()) : t.text() != "undefind" ? $.trim(t.text()) : $.trim(t.attr('src')) || "";
+        var data = t.val() ? $.trim(t.val()) : t.text() ? $.trim(t.text()) : $.trim(t.attr('src')) || "";
         if (!(t.attr("type") == "radio" || t.attr("type") == "checkbox") || t.attr("checked")) {
             json += "\"" + $(this).attr("data-field") + "\":\"" + data + "\",";
         }
     });
-    //alert(json);
     json = json.substr(0, json.length - 1) + "}";
     return json;
 }

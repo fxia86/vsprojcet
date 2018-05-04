@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Threading;
 using System.Web;
 using System.Web.Security;
@@ -7,6 +10,24 @@ namespace Tuquan.Common
 {
     public class General
     {
+        public static string Base64StringToImg(string imgBase64String,string virtualpath)
+        {
+            byte[] imgByte = Convert.FromBase64String(imgBase64String);
+            var filename = GenerateUniqueID() + ".png";
+            virtualpath = "/Image/" + virtualpath + "/";
+            using (MemoryStream ms = new MemoryStream(imgByte))
+            {
+                Bitmap bmp = new Bitmap(ms);
+                string filepath = HttpContext.Current.Server.MapPath(virtualpath);
+                if (!Directory.Exists(filepath))
+                {
+                    Directory.CreateDirectory(filepath);
+                }
+
+                bmp.Save(Path.Combine(filepath, filename), ImageFormat.Png);
+            }
+            return Path.Combine(virtualpath, filename);
+        }
 
         public static string GenerateUniqueID()
         {

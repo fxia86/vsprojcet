@@ -53,15 +53,3 @@
         </ul>
     </div>
 </div>
-<script>
-    $(function () {
-        var path = window.location.pathname == "/" ? "/main" : window.location.pathname;
-        $('.page-sidebar-menu a[href="' + path + '"]').parents('li').addClass('active');
-    });
-
-    var collapseMenu = function () {
-        $t = $('.page-sidebar');
-        if ($t.attr('style')) $t.removeAttr('style')
-        else $t.attr('style', 'width:225px !important;')
-    }
-</script>

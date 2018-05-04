@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27428.2037
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tuquan.Web", "Tuquan.Web\Tuquan.Web.csproj", "{3C207D99-6FDF-4620-8C43-A64B05B7BE46}"
 	ProjectSection(ProjectDependencies) = postProject
